@@ -23,7 +23,7 @@ if __name__=='__main__':
     mycolumns = ['타이틀 번호', '요일', '제목', '링크']
     filename = 'cartoon.csv'
     url= 'https://comic.naver.com/webtoon/weekday.nhn'
-    new_folder_name='newfile'
+    new_folder_name='week_cartoon'
     tag='div'
     attrs='thumb'
     replace_str='/webtoon/list.nhn?'
