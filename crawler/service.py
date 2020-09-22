@@ -30,7 +30,7 @@ class Service:
         weekday_dict = {'mon': '월요일', 'tue': '화요일', 'wed': '수요일', 'thu': '목요일', 'fri': '금요일', 'sat': '토요일', 'sun': '일요일'}
         self.weekday_dict=weekday_dict
         
-        myfolder = './'+folderName +'/' 
+        myfolder = 'C:/SBAProject/crawler/data/' + folderName + '/'
         self.myfolder = myfolder
         try:
             if not os.path.exists(myfolder):
@@ -89,9 +89,9 @@ class Service:
 
             mysrc = imgtag.attrs['src']
       
-            myfolder=self.myfolder
+            myfolder = self.myfolder
             weekday_dict=self.weekday_dict
-            Service.saveFile(myfolder,mysrc, myweekday, mytitle,weekday_dict)
+            Service.saveFile(myfolder, mysrc, myweekday, mytitle, weekday_dict)
 
     
             sublist = []
