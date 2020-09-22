@@ -1,0 +1,129 @@
+정형 & 반정형 & 비정형 데이터
+
+정형 : 데이터 베이스(oracle, mysql, mariadb, db2, sqlite 등등 ), 스프레드 시트(엑셀)  등등
+반정형 : html, xml, json 등등
+비정형 : SNS, 문서(워드, 한글), 이미지, 비디오 등등
+
+
+C:\Program Files\DB Browser for SQLite
+	DB Browser for SQLite.exe 더블 클릭
+
+sql : ddl + dql + dml + tcl + etc
+
+ddl(데이터 정의어)
+create table : 테이블 생성 구문
+students 테이블 : 2차원의 형식의 표
+3개의 컬럼을 가지고 있슴(문자는 text, 숫자는 integer)
+create table students(id text primary key, name text, birth text)
+
+primary key : 필수이면서 동시에 같은 값을 가질 수 없는 컬럼
+
+주의
+문자열이나 날짜 형은 반드시 외따옴표를 넣어 줘야 한다.
+행 추가, 수정, 삭제 등은 반드시 커밋을 해줘야 한다.
+커밋(commit)이란 데이터베이스에서 영구적으로 저장하는 동작을 의미합니다.
+
+dml(데이터 조작어) 구문 : insert, update, delete
+
+행 추가 
+insert into students(id, name, birth) values('lee', '이승기', '1989/12/25') ;
+insert into students(id, name, birth) values('kang', '강감찬', '1111/11/11') ;
+
+commit ;
+
+행 정보 수정
+update students set name = '이순신' where id = 'lee' ;
+
+강감찬의 생일을 1000/10/10으로 변경해보세요. 
+update students set birth = '1000/10/10' where id = 'kang' ;
+
+delete from students where id = 'sim';
+
+모든 행 삭제
+delete from students ;
+
+트랜잭션(tcl) : commit <-> rollback 
+commit ;
+
+데이터 제거하기
+drop table students ;
+
+dql(데이터 질의어)
+모든 데이터를 조회하는 문장
+select * from students ;
+
+id가 'ko'인 학생을 조회하는 구문
+select * from students where id = 'ko' ;
+
+order by : 정렬하는 것(asc, desc)
+select * from students order by name desc ;
+
+like 연산자 : whidcard를 사용한 조회
+whidcard 문자
+_(언더바) 는 1글자를 의미
+%는 0개 이상 무한개 이하를 의미
+
+이% : 성씨가 '이'씨인 사람
+%이 : 이름의 끝이 '이'로 끝나는 사람
+%이% : 이름 가운데 '이'가 들어 있는 사람
+
+select * from students where name like '%이%';
+
+fetch(패치) : 내용물의 요소를 바깥으로 끄집어 내는 동작
+	fetch_one(), fetch_all()
+
+조인 : 2개 이상의 테이블을 합쳐서 만드는 새로운 데이터 셋
+select  컬럼들
+from 테이블A join 테이블B
+on 테이블A.컬럼a = 테이블B.컬럼b ;
+
+select *
+from students join sungjuk
+on students.id = sungjuk.id 
+
+별칭을 사용
+select *
+from students st join sungjuk sg
+on st.id = sg.id 
+
+select st.id, st.name, st.birth, sg.subject, sg.jumsu
+from students st join sungjuk sg
+on st.id = sg.id 
+
+sql = " select st.id, st.name, st.birth, sg.subject, sg.jumsu"
+sql += " from students st join sungjuk sg "
+sql += " on st.id = sg.id"
+
+
+이름이 '이문세'인 친구의 성적을 구해보자.
+select id from students where name = '이문세' ;
+
+select * from sungjuk where id = 'lee' ;
+
+메인 쿼리 : 외부에 있는 select 구문
+서브 쿼리 : 메인 쿼리 내부에 들어 있고, 메인 쿼리보다 우선적으로 실행이 되는 쿼리
+
+select * from sungjuk 
+where id = (select id from students where name = '이문세')
+
+sql = " select * from sungjuk "
+sql += " where id = (select id from students where name = '이문세')"
+
+고아라의 시험 점수만 출력하기
+select jumsu from sungjuk 
+where id = (select id from students where name = '고아라')
+
+sql = " select jumsu  from sungjuk "
+sql += " where id = (select id from students where name = '고아라')"
+
+create table members(id text, name text)
+
+
+
+
+
+
+
+
+
+
