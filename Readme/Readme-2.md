@@ -14,8 +14,8 @@ ML Algorism
 3. 분류 
 4. SVM
 5. Dtree
-6. kmean
-7. PCA
+6. kmean = clustering
+7. PCA = Dimensionality reduction 
 8. RF (R-forest)
 9. NLP
 10. DL (Deep Learning) 
