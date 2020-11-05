@@ -3,22 +3,12 @@ from dataclasses import dataclass
 @dataclass
 class Entity:
 
-<<<<<<< HEAD
-    context : str = 'C:/SBAProject/titanic/data/' 
+    context : str = 'C:/SBAProject/titanic/data' 
     fname : str = ''
     train: object = None
     test: object = None
     id: str = ''
     label: str = ''
-
-    
-=======
-    context : str  
-    fname : str
-    train : str
-    test : str
-    id : str
-    label : str
 
     '''
     def __init__(self,context,fname,train,test,id,label):
@@ -28,7 +18,7 @@ class Entity:
         self._test = test
         self._id = id
         self._label = label
-    '''
+    
 
     # context get, set 을 만든다
 
@@ -89,5 +79,4 @@ class Entity:
     @label.setter 
     def label(self, label):
         self._label = label
-
->>>>>>> 7d435d24cc64448c886109f024644393c1562b8c
+'''

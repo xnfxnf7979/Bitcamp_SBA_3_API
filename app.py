@@ -1,12 +1,16 @@
 from flask import Flask
+<<<<<<< HEAD
 from flask import render_template, request
 from price_prediction.cabbage  import Cabbage
 from member.student import Student
 from member.student import StudentService
+=======
+>>>>>>> 7d435d24cc64448c886109f024644393c1562b8c
 
 app = Flask(__name__)
 
 @app.route('/')
+<<<<<<< HEAD
 def hello_world():
     return render_template('join.html')
 
@@ -77,3 +81,11 @@ def signin():
 
 if __name__ == "__main__":
     app.run()
+=======
+def index():
+    hi = 'hello world'
+    return hi
+
+if __name__ == '__main__':
+    app.run(debug=True)
+>>>>>>> 7d435d24cc64448c886109f024644393c1562b8c

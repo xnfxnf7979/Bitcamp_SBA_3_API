@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import sys
 sys.path.insert(0, 'C:/SBAProject')
 from titanic.entity import Entity
@@ -89,3 +90,24 @@ if __name__ == '__main__':
     ctrl = Controller()
     ctrl.learning('train.csv','test.csv')
 
+=======
+from user.entity import Entity
+from user.service import Service
+
+class Controller:
+    def __init__(self):
+        self.entity = Entity()
+        self.service = Service()
+
+    def preprocessing(self):
+        pass
+
+    def modeling(self):
+        pass
+    
+    def learning(self):
+        pass
+
+    def submit(self):
+        pass
+>>>>>>> 7d435d24cc64448c886109f024644393c1562b8c
